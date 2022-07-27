@@ -1,0 +1,2 @@
+:: camvid 数据集
+python train.py --backbone resnet --batch_size 8 --epochs 500  --scaleSize 720 --scaleSizeValid 720 --classNum 32 --datasetRootDir D:\Datasets\camvid  --train_image_dir D:\Datasets\camvid\images --train_label_dir D:\Datasets\camvid\labels --useCUDA 1 --pretrained 1

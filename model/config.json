@@ -1,0 +1,72 @@
+{
+    "model_algorithm": "brake disc classification",
+    "model_type": "PyTorch",
+    "runtime":"pytorch1.5-python3.7",
+    "metrics": {
+        "f1": 1,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1
+    },
+    "apis": [{
+        "protocol": "http",
+        "url": "/",
+        "method": "post",
+        "request": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "images": {
+                        "type": "file"
+                    }
+                }
+            }
+        },
+        "response": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "detection_boxes": {
+                        "type": "array",
+                        "items": [{
+                            "type": "array",
+                            "minItems": 4,
+                            "maxItems": 4,
+                            "items": [{
+                                "type": "number"
+                            }]
+                        }]
+                    }
+                }
+            }
+        }
+    }],
+    "dependencies": [{
+        "installer": "pip",
+        "packages": [
+            {
+                "restraint": "",
+                "package_version": "",
+                "package_name": "numpy"
+            },{
+                "restraint": "",
+                "package_version": "",
+                "package_name": "Pillow"
+            },{
+                "restraint": "",
+                "package_version": "",
+                "package_name": "scipy"
+            },{
+                "restraint": "ATLEAST",
+                "package_version": "0.11",
+                "package_name": "torchvision"
+            },{
+                "restraint": "",
+                "package_version": "",
+                "package_name": "opencv-python-headless"
+            }
+        ]
+    }]
+}
